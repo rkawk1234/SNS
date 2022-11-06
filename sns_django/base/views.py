@@ -7,6 +7,8 @@ from base.models import Profile
 
 # Create your views here.
 
+#it sends user to the signin page when not logged in, django feature
+@login_required(login_url='signin')
 def index(request):
     return render(request,'index.html')
 
@@ -21,7 +23,7 @@ def signup(request):
         #if two input passwords match
         if password==password2:
             if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email exists')
+                messages.info(request, 'Email taken')
                 return redirect('signup')
             elif User.objects.filter(username=username).exists():
                 messages.info(request,'This username is taken')
@@ -31,13 +33,15 @@ def signup(request):
                 user.save()
 
                 #login user then redirect to settings page
+                user_login = auth.authenticate(username=username,password=password)
+                auth.login(request,user_login)
                 
 
                 #create Profile object for new user
                 user_model = User.objects.get(username=username)
                 new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
                 new_profile.save()
-                return redirect('signup')
+                return redirect('settings')
                 
 
 
@@ -67,7 +71,14 @@ def signin(request):
         return render(request,'signin.html')
 
 
+@login_required(login_url='signin')
 def logout(request):
     auth.logout(request)
     return redirect('signin')
+
+
+@login_required(login_url='signin')
+def settings(request):
+    return render(request,'setting.html')
+
 
