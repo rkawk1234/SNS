@@ -12,6 +12,12 @@ from base.models import Profile
 def index(request):
     return render(request,'index.html')
 
+@login_required(login_url='signin')
+def settings(request):
+    user_profile = Profile.objects.get(user=request.user)
+    return render(request,'setting.html', {'user_profile': user_profile })
+
+
 def signup(request):
 
     if request.method == 'POST':
@@ -75,10 +81,5 @@ def signin(request):
 def logout(request):
     auth.logout(request)
     return redirect('signin')
-
-
-@login_required(login_url='signin')
-def settings(request):
-    return render(request,'setting.html')
 
 

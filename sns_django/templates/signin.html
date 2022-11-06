@@ -32,7 +32,7 @@
                 <div class="flex items-center lg:justify-between justify-around">
 
                     <a href="trending.html">
-                       <b><h1 style="font-size: 1.5rem;">SNS</h1></b>
+                       <b><h1 style="font-size: 1.5rem;">PostBook</h1></b>
                     </a>
 
                     <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
@@ -54,7 +54,7 @@
                     {% endfor %}
                 </div>
                 <form action="" method="POST">
-                    
+
                     {% csrf_token %}
                     <input type="text" name="username" placeholder="Username" class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
                     <input type="password" name="password" placeholder="***********" class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
