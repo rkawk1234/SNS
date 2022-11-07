@@ -1,2 +1,2 @@
 # SNS
-Social media application by Django
+Social media web application by Django
