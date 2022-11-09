@@ -26,12 +26,7 @@
                     <form action="/search" method="POST">
                     {% csrf_token %}
                     <div class="left-side">
-                        <!-- Logo -->
-                        <div id="logo" class=" uk-hidden@s">
-                            <a href="home.html">
-                                <b><h1 style="text-transform: uppercase;">PostBook</h1></b>
-                            </a>
-                        </div>
+
 
                         <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
                             <i class="uil-bars"></i>
@@ -44,6 +39,7 @@
 
                     </div>
                     </form>
+                    
                     <div class="right-side lg:pr-4">
                          <!-- upload -->
                         <a href="#"
@@ -247,7 +243,7 @@
                         <div class="bg-white  shadow-md rounded-md overflow-hidden">
 
                             <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
-                                <h2 class="font-semibold text-lg">Users You Can Follow</h2>
+                                <h2 class="font-semibold text-lg">Recommendation</h2>
                             </div>
                            
                             <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y px-4 ">
@@ -264,7 +260,7 @@
                                         </div>
                                     </div>
                                     
-                                    <a href="/profile/{{suggestion.user}}" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 "> View User </a>
+                                    <a href="/profile/{{suggestion.user}}" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 "> Profile </a>
                                 </div>
 
                                 {% endfor %}
